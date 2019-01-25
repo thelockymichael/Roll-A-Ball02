@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     //public float speed;
     public Text countText;
     public GameObject winText;
+    public GameObject InControl;
 
     //private Rigidbody rb;
     private int count;
@@ -90,8 +91,7 @@ public class PlayerMovement : MonoBehaviour
         if (count >= 12)
         {
             Debug.Log("WINNING");
-            audioSource.clip = victoryClip;
-            audioSource.Play();
+            
 
             countText.text = "";
 
@@ -104,6 +104,9 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         Time.timeScale = 0f;
+        audioSource.clip = victoryClip;
+        audioSource.Play();
+        InControl.SetActive(false);
         winText.SetActive(true);
     }
 }
