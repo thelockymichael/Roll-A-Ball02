@@ -11,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
     public Text countText;
     public GameObject winText;
     public GameObject InControl;
+    public GameObject PauseMenu;
+
+    private bool voitto = false;
 
     //private Rigidbody rb;
     private int count;
@@ -102,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator winDelay()
     {
+
         yield return new WaitForSeconds(2);
         Time.timeScale = 0f;
         audioSource.clip = victoryClip;
